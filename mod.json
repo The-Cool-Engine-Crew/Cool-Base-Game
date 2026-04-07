@@ -1,0 +1,16 @@
+{
+    "id": "",
+    "name": "Base Game",
+    "description": "",
+    "author": "The Funkin Crew",
+    "developerMode": true,
+    "version": "0.6.1",
+    "priority": 0,
+    "color": "#6633CC",
+    "website": "",
+    "enabled": true,
+    "appTitle": "Friday Night Funkin'",
+    "appIcon": "iconOG",
+    "startupDefault": true,
+    "folder": "Cool-Base-Game"
+}
