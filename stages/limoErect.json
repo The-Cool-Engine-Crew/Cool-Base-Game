@@ -1,37 +1,37 @@
 {
-	"dadPosition": [
-		100,
-		57.1428571428572
+	"scripts": [
+		"limo_stage.hx"
 	],
+	"_comment": "Scripts stage",
 	"gfPosition": [
 		400,
 		107.142857142857
 	],
-	"_comment": "Scripts stage",
-	"scripts": [
-		"limo_stage.hx"
+	"dadPosition": [
+		100,
+		57.1428571428572
 	],
 	"gfVersion": "gf-car",
-	"isPixelStage": false,
 	"cameraDad": [
 		0,
 		100
 	],
-	"name": "limoErect",
+	"isPixelStage": false,
 	"boyfriendPosition": [
 		1030,
 		192.857142857143
 	],
+	"name": "limoErect",
 	"defaultZoom": 0.9,
 	"elements": [
 		{
-			"asset": "limoSunset",
+			"zIndex": 0,
+			"antialiasing": true,
 			"scrollFactor": [
 				0.1,
 				0.1
 			],
-			"antialiasing": true,
-			"zIndex": 0,
+			"asset": "limoSunset",
 			"position": [
 				-120,
 				-50
@@ -40,189 +40,189 @@
 			"name": "limoSunset"
 		},
 		{
+			"asset": "mistBack",
 			"aboveChars": false,
-			"flipY": false,
-			"color": null,
-			"flipX": false,
+			"blend": "add",
 			"visible": true,
+			"color": null,
+			"antialiasing": true,
+			"zIndex": 0,
 			"position": [
 				-650,
 				-380
 			],
-			"zIndex": 0,
-			"alpha": 1,
-			"asset": "mistBack",
+			"type": "backdrop",
+			"scale": [
+				1.5,
+				1.5
+			],
+			"velocityX": 700,
+			"flipX": false,
+			"name": "mist1",
+			"velocityY": 0,
+			"flipY": false,
 			"scrollFactor": [
 				0.6,
 				0.6
 			],
-			"antialiasing": true,
-			"name": "mist1",
-			"blend": "add",
-			"type": "backdrop",
-			"scale": [
-				1.5,
-				1.5
-			],
 			"repeatX": true,
 			"repeatY": false,
-			"velocityX": 700,
-			"velocityY": 0
+			"alpha": 1
 		},
 		{
-			"zIndex": 0,
-			"asset": "mistBack",
 			"aboveChars": false,
+			"asset": "mistBack",
+			"blend": "add",
+			"visible": true,
+			"color": null,
+			"antialiasing": true,
+			"zIndex": 0,
 			"position": [
 				-653.333317328359,
 				-19.999998957815
 			],
-			"visible": true,
-			"blend": "add",
 			"type": "backdrop",
 			"scale": [
 				1.5,
 				1.5
 			],
+			"velocityX": 700,
 			"name": "mist2",
 			"flipX": false,
-			"color": null,
-			"antialiasing": true,
+			"velocityY": 0,
 			"scrollFactor": [
 				0.8,
 				0.8
 			],
 			"flipY": false,
-			"alpha": 0.5,
 			"repeatX": true,
 			"repeatY": false,
-			"velocityX": 700,
-			"velocityY": 0
+			"alpha": 0.5
 		},
 		{
-			"asset": "shooting star",
 			"zIndex": 0,
+			"asset": "shooting star",
 			"position": [
 				200,
 				0
 			],
+			"type": "animated",
+			"visible": true,
 			"scale": [
 				1,
 				1
 			],
-			"visible": true,
-			"type": "animated",
 			"name": "shooting star",
-			"firstAnimation": "shooting star",
+			"antialiasing": true,
 			"scrollFactor": [
 				0.1,
 				0.1
 			],
-			"antialiasing": true,
+			"firstAnimation": "shooting star",
 			"alpha": 1,
 			"animations": [
 				{
 					"framerate": 24,
 					"prefix": "shooting star",
+					"indices": null,
 					"name": "shooting star",
-					"looped": false,
-					"indices": null
+					"looped": false
 				}
 			]
 		},
 		{
-			"zIndex": 0,
-			"asset": "mistMid",
 			"aboveChars": true,
+			"asset": "mistMid",
+			"blend": "add",
+			"visible": true,
+			"color": null,
+			"antialiasing": true,
+			"zIndex": 0,
 			"position": [
 				-653.333317328359,
 				100.000001042185
 			],
-			"visible": true,
 			"type": "backdrop",
-			"blend": "add",
 			"scale": [
 				1.3,
 				1.3
 			],
+			"velocityX": 1700,
 			"name": "mist3",
 			"flipX": false,
-			"color": null,
-			"antialiasing": true,
+			"velocityY": 0,
 			"scrollFactor": [
 				1.1,
 				1.1
 			],
 			"flipY": false,
-			"alpha": 0.4,
 			"repeatX": true,
 			"repeatY": false,
-			"velocityX": 1700,
-			"velocityY": 0
+			"alpha": 0.4
 		},
 		{
-			"zIndex": 0,
-			"asset": "mistBack",
 			"aboveChars": false,
+			"asset": "mistBack",
+			"blend": "add",
+			"visible": true,
+			"color": null,
+			"antialiasing": true,
+			"zIndex": 0,
 			"position": [
 				-623.333317328359,
 				10.000001042185
 			],
-			"visible": true,
 			"type": "backdrop",
-			"blend": "add",
 			"scale": [
 				1.5,
 				1.5
 			],
+			"velocityX": 2100,
 			"name": "mist4",
 			"flipX": false,
-			"color": null,
-			"antialiasing": true,
+			"velocityY": 0,
 			"scrollFactor": [
 				0.8,
 				0.8
 			],
 			"flipY": false,
-			"alpha": 0.5,
 			"repeatX": true,
 			"repeatY": false,
-			"velocityX": 2100,
-			"velocityY": 0
+			"alpha": 0.5
 		},
 		{
+			"asset": "mistMid",
 			"aboveChars": false,
-			"flipY": false,
-			"color": null,
-			"flipX": false,
+			"blend": "add",
 			"visible": true,
+			"color": null,
+			"antialiasing": true,
+			"zIndex": 0,
 			"position": [
 				-650,
 				-400
 			],
-			"zIndex": 0,
-			"alpha": 1,
-			"asset": "mistMid",
-			"scrollFactor": [
-				0.2,
-				0.2
-			],
-			"antialiasing": true,
-			"name": "mist5",
 			"type": "backdrop",
-			"blend": "add",
 			"scale": [
 				1.5,
 				1.5
 			],
+			"velocityX": 100,
+			"flipX": false,
+			"name": "mist5",
+			"velocityY": 0,
+			"flipY": false,
+			"scrollFactor": [
+				0.2,
+				0.2
+			],
 			"repeatX": true,
 			"repeatY": false,
-			"velocityX": 100,
-			"velocityY": 0
+			"alpha": 1
 		},
 		{
-			"asset": "bgLimo",
 			"zIndex": 1,
+			"asset": "bgLimo",
 			"position": [
 				-200,
 				480
@@ -238,67 +238,33 @@
 			"animations": [
 				{
 					"prefix": "background limo blue",
-					"name": "drive",
+					"looped": true,
 					"framerate": 24,
-					"looped": true
+					"name": "drive"
 				}
 			]
 		},
 		{
-			"asset": "limoDrive",
-			"zIndex": 2,
-			"position": [
-				-120,
-				520
-			],
-			"type": "animated",
-			"scale": [
-				1,
-				1
-			],
-			"visible": true,
-			"name": "limoDrive",
-			"flipX": false,
-			"firstAnimation": "drive",
-			"antialiasing": true,
-			"scrollFactor": [
-				1,
-				1
-			],
-			"flipY": false,
-			"alpha": 1,
-			"animations": [
-				{
-					"prefix": "Limo stage",
-					"name": "drive",
-					"framerate": 24,
-					"looped": true
-				}
-			]
-		},
-		{
-			"asset": "limoDancer",
-			"zIndex": 3,
 			"_comment": "BackgroundDancer 1 — portado desde custom_class_group. La lógica dance() la hace limo_stage.hx en onStepHit.",
+			"zIndex": 3,
+			"asset": "limoDancer",
 			"position": [
 				130,
 				100
 			],
 			"type": "animated",
-			"assetLibrary": "limo",
 			"name": "dancer1",
-			"antialiasing": true,
+			"assetLibrary": "limo",
+			"firstAnimation": "danceLeft",
 			"scrollFactor": [
 				0.4,
 				0.4
 			],
-			"firstAnimation": "danceLeft",
+			"antialiasing": true,
 			"animations": [
 				{
 					"framerate": 24,
 					"prefix": "bg dancer sketch PINK",
-					"name": "danceLeft",
-					"looped": false,
 					"indices": [
 						0,
 						1,
@@ -315,13 +281,13 @@
 						12,
 						13,
 						14
-					]
+					],
+					"name": "danceLeft",
+					"looped": false
 				},
 				{
 					"framerate": 24,
 					"prefix": "bg dancer sketch PINK",
-					"name": "danceRight",
-					"looped": false,
 					"indices": [
 						15,
 						16,
@@ -338,32 +304,32 @@
 						27,
 						28,
 						29
-					]
+					],
+					"name": "danceRight",
+					"looped": false
 				}
 			]
 		},
 		{
-			"asset": "limoDancer",
 			"zIndex": 3,
+			"asset": "limoDancer",
 			"position": [
 				500,
 				100
 			],
 			"type": "animated",
-			"assetLibrary": "limo",
 			"name": "dancer2",
+			"assetLibrary": "limo",
+			"antialiasing": true,
 			"firstAnimation": "danceLeft",
 			"scrollFactor": [
 				0.4,
 				0.4
 			],
-			"antialiasing": true,
 			"animations": [
 				{
 					"framerate": 24,
 					"prefix": "bg dancer sketch PINK",
-					"name": "danceLeft",
-					"looped": false,
 					"indices": [
 						0,
 						1,
@@ -380,13 +346,13 @@
 						12,
 						13,
 						14
-					]
+					],
+					"name": "danceLeft",
+					"looped": false
 				},
 				{
 					"framerate": 24,
 					"prefix": "bg dancer sketch PINK",
-					"name": "danceRight",
-					"looped": false,
 					"indices": [
 						15,
 						16,
@@ -403,32 +369,32 @@
 						27,
 						28,
 						29
-					]
+					],
+					"name": "danceRight",
+					"looped": false
 				}
 			]
 		},
 		{
-			"asset": "limoDancer",
 			"zIndex": 3,
+			"asset": "limoDancer",
 			"position": [
 				870,
 				100
 			],
 			"type": "animated",
-			"assetLibrary": "limo",
 			"name": "dancer3",
+			"assetLibrary": "limo",
+			"antialiasing": true,
 			"firstAnimation": "danceLeft",
 			"scrollFactor": [
 				0.4,
 				0.4
 			],
-			"antialiasing": true,
 			"animations": [
 				{
 					"framerate": 24,
 					"prefix": "bg dancer sketch PINK",
-					"name": "danceLeft",
-					"looped": false,
 					"indices": [
 						0,
 						1,
@@ -445,13 +411,13 @@
 						12,
 						13,
 						14
-					]
+					],
+					"name": "danceLeft",
+					"looped": false
 				},
 				{
 					"framerate": 24,
 					"prefix": "bg dancer sketch PINK",
-					"name": "danceRight",
-					"looped": false,
 					"indices": [
 						15,
 						16,
@@ -468,32 +434,32 @@
 						27,
 						28,
 						29
-					]
+					],
+					"name": "danceRight",
+					"looped": false
 				}
 			]
 		},
 		{
-			"asset": "limoDancer",
 			"zIndex": 3,
+			"asset": "limoDancer",
 			"position": [
 				1240,
 				100
 			],
 			"type": "animated",
-			"assetLibrary": "limo",
 			"name": "dancer4",
+			"assetLibrary": "limo",
+			"antialiasing": true,
 			"firstAnimation": "danceLeft",
 			"scrollFactor": [
 				0.4,
 				0.4
 			],
-			"antialiasing": true,
 			"animations": [
 				{
 					"framerate": 24,
 					"prefix": "bg dancer sketch PINK",
-					"name": "danceLeft",
-					"looped": false,
 					"indices": [
 						0,
 						1,
@@ -510,13 +476,13 @@
 						12,
 						13,
 						14
-					]
+					],
+					"name": "danceLeft",
+					"looped": false
 				},
 				{
 					"framerate": 24,
 					"prefix": "bg dancer sketch PINK",
-					"name": "danceRight",
-					"looped": false,
 					"indices": [
 						15,
 						16,
@@ -533,22 +499,122 @@
 						27,
 						28,
 						29
-					]
+					],
+					"name": "danceRight",
+					"looped": false
 				}
 			]
 		},
 		{
-			"asset": "fastCarLol",
+			"visible": true,
+			"charSlot": "gf",
+			"position": [
+				0,
+				0
+			],
+			"zIndex": 0,
+			"alpha": 1,
+			"asset": "",
+			"scrollFactor": [
+				1,
+				1
+			],
 			"antialiasing": true,
-			"aboveChars": true,
+			"name": "char_gf",
+			"type": "character",
+			"scale": [
+				1,
+				1
+			]
+		},
+		{
+			"zIndex": 2,
+			"asset": "limoDrive",
+			"position": [
+				-120,
+				520
+			],
+			"visible": true,
+			"scale": [
+				1,
+				1
+			],
+			"type": "animated",
+			"flipX": false,
+			"name": "limoDrive",
+			"flipY": false,
+			"scrollFactor": [
+				1,
+				1
+			],
+			"antialiasing": true,
+			"firstAnimation": "drive",
+			"alpha": 1,
+			"animations": [
+				{
+					"prefix": "Limo stage",
+					"looped": true,
+					"framerate": 24,
+					"name": "drive"
+				}
+			]
+		},
+		{
+			"visible": true,
+			"charSlot": "dad",
+			"position": [
+				0,
+				0
+			],
+			"zIndex": 0,
+			"alpha": 1,
+			"asset": "",
+			"scrollFactor": [
+				1,
+				1
+			],
+			"antialiasing": true,
+			"name": "char_dad",
+			"type": "character",
+			"scale": [
+				1,
+				1
+			]
+		},
+		{
+			"visible": true,
+			"charSlot": "bf",
+			"position": [
+				0,
+				0
+			],
+			"zIndex": 0,
+			"alpha": 1,
+			"asset": "",
+			"scrollFactor": [
+				1,
+				1
+			],
+			"antialiasing": true,
+			"name": "char_bf",
+			"type": "character",
+			"scale": [
+				1,
+				1
+			]
+		},
+		{
 			"zIndex": 6,
+			"aboveChars": true,
+			"antialiasing": true,
+			"asset": "fastCarLol",
 			"position": [
 				-300,
 				160
 			],
 			"type": "sprite",
-			"name": "fastCar",
-			"assetLibrary": "limo"
+			"assetLibrary": "limo",
+			"name": "fastCar"
 		}
 	]
 }
