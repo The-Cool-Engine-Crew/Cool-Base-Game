@@ -58,11 +58,11 @@ function triggerLightning()
 	// FIX: boyfriend y gf no están expuestos directamente → usar chars.bf() / chars.gf()
 	var bf = chars.bf();
 	if (bf != null)
-		bf.playAnim('scared', true);
+		characterController.playSpecialAnim(bf, 'scared');
 	
 	var gf = chars.gf();
 	if (gf != null)
-		gf.playAnim('scared', true);
+		characterController.playSpecialAnim(gf, 'scared');
 	
 	// Actualizar timing del próximo rayo
 	// FIX: playState no existe en scripts → usar game.curBeat
