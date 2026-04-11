@@ -54,8 +54,6 @@ function triggerLightning()
 		halloweenBG.animation.play('lightning');
 	}
 	
-	// Asustar a los personajes
-	// FIX: boyfriend y gf no están expuestos directamente → usar chars.bf() / chars.gf()
 	var bf = chars.bf();
 	if (bf != null)
 		characterController.playSpecialAnim(bf, 'scared');
@@ -64,15 +62,11 @@ function triggerLightning()
 	if (gf != null)
 		characterController.playSpecialAnim(gf, 'scared');
 	
-	// Actualizar timing del próximo rayo
-	// FIX: playState no existe en scripts → usar game.curBeat
 	lightningStrikeBeat = game.curBeat;
 	lightningOffset = FlxG.random.int(8, 24);
 	
-	// Flash en la cámara para efecto extra
-	// FIX: camGame no está expuesto directamente → usar camera.flash()
-	//      (los parámetros null y true extra eran inválidos en FlxCamera.flash)
-	camera.flash(FlxColor.WHITE, 0.15);
+	if (SaveData.data.flashing == true)
+		camGame.flash(FlxColor.WHITE, 0.15);
 }
 
 // ==========================================

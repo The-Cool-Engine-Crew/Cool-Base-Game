@@ -1,0 +1,30 @@
+{
+  "bpm": 102,
+
+  "introBeats": [
+    { "beat": 0,  "clear": true },
+    { "beat": 1,  "texts": ["The"] },
+    { "beat": 2,  "texts": ["The Funkin Crew Inc"] },
+    { "beat": 3,  "texts": ["presents"] },
+    { "beat": 4,  "clear": true },
+    { "beat": 5,  "texts": ["In Association"] },
+    { "beat": 6,  "texts": ["with"] },
+    { "beat": 7,  "texts": ["Newgrounds"] },
+    { "beat": 8,  "clear": true },
+    { "beat": 9,  "random": true },
+    { "beat": 11, "randomSecond": true },
+    { "beat": 12, "clear": true },
+    { "beat": 13, "texts": ["Friday"] },
+    { "beat": 14, "texts": ["Night"] },
+    { "beat": 15, "texts": ["Funkin"] },
+    { "beat": 16, "skipIntro": true }
+  ],
+
+  "randomLines": [
+    ["Carpal Tunnel", "Game Design"],
+    ["Dope ass game", "PlayStation Magazine"],
+    ["Album of the year", "Chuckie Fister"],
+    ["Like Parappa", "But Cooler"],
+    ["Parental Advisory", "Explicit Content"]
+  ]
+}
