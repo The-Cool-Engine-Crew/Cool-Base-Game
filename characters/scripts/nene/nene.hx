@@ -66,7 +66,6 @@ function onCreate()
     blinkCountdown = MIN_BLINK_DELAY;
 
     stereoBG = new FunkinSprite(0, 0);
-    // stereoBG es una imagen estática — sin Animation.json, carga como PNG directo
     stereoBG.loadGraphic(Paths.characterimage('abot/stereoBG'));
 
     eyeWhites = new FunkinSprite(0, 0);
@@ -74,11 +73,14 @@ function onCreate()
 
     pupil = new FunkinSprite(0, 0);
     pupil.loadCharacterSparrow('abot/systemEyes');
-    // BUGFIX: comprobar que anim no es null antes de añadir callback
-    if (pupil.anim != null)
+
+    // FIX: FunkinSprite no tiene campo .anim; el controlador de animaciones
+    // es .animation (FlxAnimationController heredado de FlxSprite).
+    // onFrameChange es una señal del FlxAnimationController.
+    if (pupil.animation != null)
     {
-        pupil.anim.onFrameChange.add(function(name, frameNumber, frameIndex) {
-            if (frameNumber == 16) pupil.anim.pause();
+        pupil.animation.onFrameChange.add(function(name, frameNumber, frameIndex) {
+            if (frameNumber == 16) pupil.animation.pause();
         });
     }
 
@@ -103,15 +105,10 @@ function onUpdate(elapsed:Float)
     stereoBG.visible  = character.visible;
     if (viz != null) viz.setVisible(character.visible);
 
-    // BUGFIX: actualizar posición del A-Bot cada frame para seguir al personaje.
-    // Sin esto el A-Bot se quedaba en la posición inicial de postCreate.
     if (hasSetupAbot)
     {
         var offX:Float = 0.0;
         var offY:Float = 0.0;
-        // BUGFIX: getCurAnimName() es el método unificado que funciona tanto
-        // para Sparrow (donde animation.curAnim puede ser null en Atlas)
-        // como para Animate Atlas. Nunca usar animation.curAnim.name directamente.
         var animName = character.getCurAnimName();
         if (character.animOffsets.exists(animName))
         {
@@ -140,27 +137,29 @@ function onUpdate(elapsed:Float)
 
     if (viz != null) viz.update(elapsed);
 
-    // Tracking de pupilas
-    if (pupil.anim != null && pupil.anim.isPlaying)
+    // FIX: pupil.anim no existe → pupil.animation (FlxAnimationController).
+    // isPlaying tampoco existe en FlxAnimationController; la forma correcta
+    // es comprobar curAnim != null y curAnim.playing.
+    if (pupil.animation != null && pupil.animation.curAnim != null && pupil.animation.curAnim.playing)
     {
-        if (pupilState == PUPIL_RIGHT && pupil.anim.curFrame >= 17)
+        if (pupilState == PUPIL_RIGHT && pupil.animation.curAnim.curFrame >= 17)
         {
             pupilState = PUPIL_LEFT;
-            pupil.anim.pause();
+            pupil.animation.pause();
         }
-        else if (pupilState == PUPIL_LEFT && pupil.anim.curFrame >= 30)
+        else if (pupilState == PUPIL_LEFT && pupil.animation.curAnim.curFrame >= 30)
         {
             pupilState = PUPIL_RIGHT;
-            pupil.anim.pause();
+            pupil.animation.pause();
         }
     }
 
-    // Frame 13 de danceLeft → marcar animationFinished para que
-    // transitionState() dispare la transición a RAISE.
+    // Frame 13 de danceLeft → disparar transición a RAISE.
     if (currentState == STATE_PRE_RAISE)
     {
         var curAnimName = character.getCurAnimName();
-        var curFrame    = (character.anim != null) ? character.anim.curFrame : -1;
+        // FIX: character.anim no existe → character.animation.curAnim
+        var curFrame = (character.animation.curAnim != null) ? character.animation.curAnim.curFrame : -1;
         if (curAnimName == 'danceLeft' && curFrame == 13)
             animationFinished = true;
     }
@@ -183,8 +182,9 @@ function onDestroy()
 
 function overrideDance():Bool
 {
-    if (abot != null && abot.anim != null)
-        abot.anim.play('', true, false, 1);
+    // FIX: abot.anim no existe → abot.animation (FlxAnimationController).
+    if (abot != null && abot.animation != null)
+        abot.animation.play('', true, false, 1);
 
     switch (currentState)
     {
@@ -212,9 +212,6 @@ function overrideDance():Bool
 
 function onAnimEnd(animName:String)
 {
-    // FIX: case con múltiples valores — el preprocesador los expande a casos
-    // separados. Este patrón (case 2, 4, ...:) es válido en Haxe pero no en
-    // HScript directamente; el preprocesador de HScriptInstance lo convierte.
     switch (currentState)
     {
         case 2, 4, 5, 6, 7, 8:
@@ -247,9 +244,8 @@ function onBeatHit(beat:Int)
 }
 
 /**
- * onEvent: intercepta los eventos de cámara ANTES de que el engine los procese.
- *
- * Retornar false = no cancelar el evento (el engine sigue moviendo la cámara).
+ * onEvent: intercepta los eventos de cámara.
+ * Retornar false = no cancelar el evento (el engine sigue procesándolo).
  */
 function onEvent(name:String, v1:String, v2:String, time:Float):Bool
 {
@@ -272,8 +268,9 @@ function onEvent(name:String, v1:String, v2:String, time:Float):Bool
 //  PUPILAS
 // ══════════════════════════════════════════════════════════════════════════════
 
-function movePupilsLeft():Void  { if (pupil != null && pupil.anim != null) pupil.anim.play('', true, false, 0);  }
-function movePupilsRight():Void { if (pupil != null && pupil.anim != null) pupil.anim.play('', true, false, 17); }
+// FIX: pupil.anim.play() → pupil.animation.play() (FlxAnimationController).
+function movePupilsLeft():Void  { if (pupil != null && pupil.animation != null) pupil.animation.play('', true, false, 0);  }
+function movePupilsRight():Void { if (pupil != null && pupil.animation != null) pupil.animation.play('', true, false, 17); }
 
 function moveByNoteKind(kind:String):Void
 {
@@ -289,10 +286,6 @@ function setTrainPassing(value:Bool):Void { trainPassing = value; }
 
 function checkTrainPassing(raised:Bool):Void
 {
-    // FIX Bug 4: el preprocesador elimina el valor por defecto "= false" del
-    // parámetro porque HScript no soporta default args. Cuando se llama como
-    // checkTrainPassing() sin argumento, raised llega como null en HScript.
-    // Esta línea restaura el comportamiento correcto del valor por defecto.
     if (raised == null) raised = false;
 
     if (!trainPassing) return;
@@ -307,14 +300,19 @@ function checkTrainPassing(raised:Bool):Void
 
 function transitionState():Void
 {
+    // FIX: health is only injected by ScriptAPI when PlayState is active (ps != null).
+    // Outside gameplay (character editor, preview, etc.) the variable is null in HScript.
+    // Cache it once with a null check — all comparisons below use the local copy.
+    var hp:Float = (health != null) ? health.get() : 1.0;
+
     switch (currentState)
     {
         case 0: // DEFAULT
-            if (health <= VULTURE_THRESHOLD) currentState = STATE_PRE_RAISE;
+            if (hp <= VULTURE_THRESHOLD) currentState = STATE_PRE_RAISE;
             checkTrainPassing(false);
 
         case 1: // PRE_RAISE
-            if (health > VULTURE_THRESHOLD)
+            if (hp > VULTURE_THRESHOLD)
                 currentState = STATE_DEFAULT;
             else if (animationFinished)
             {
@@ -329,7 +327,7 @@ function transitionState():Void
             checkTrainPassing(true);
 
         case 3: // READY
-            if (health > VULTURE_THRESHOLD) currentState = STATE_LOWER;
+            if (hp > VULTURE_THRESHOLD) currentState = STATE_LOWER;
             checkTrainPassing(true);
 
         case 4: // LOWER
@@ -362,8 +360,8 @@ function transitionState():Void
 function setupAbot():Void
 {
     if (abot == null) return;
-    if (character == null) return; // postCreate se llama 2 veces; la primera sin character inyectado
-    if (hasSetupAbot) return;      // BUGFIX: evitar doble setup y sprites duplicados
+    if (character == null) return;
+    if (hasSetupAbot) return;
 
     var offX:Float = 0.0;
     var offY:Float = 0.0;
@@ -384,22 +382,14 @@ function setupAbot():Void
     var vizBaseX:Float = abot.x + 207;
     var vizBaseY:Float = abot.y + 124;
 
-    // FIX Bug 1+2: require() ahora aplica el preprocesador al módulo Y lo
-    // recibe correctamente como objeto {create, padNum} gracias al return
-    // explícito al final de ABotVis.hx.
     var vizModule:Dynamic = require('ABotVis.hx');
     if (vizModule != null)
         viz = vizModule.create(vizBaseX, vizBaseY);
     else
         log('WARN: no se pudo cargar ABotVis.hx');
 
-    // ── Orden de profundidad (de atrás hacia adelante) ────────────────────
-    // 1. stereoBG   — fondo negro de la pantalla
-    // 2. barras viz — sobre el fondo, bajo el marco del aBot
-    // 3. eyeWhites  — blanco de ojos
-    // 4. pupil      — pupilas
-    // 5. abot       — marco/cuerpo del A-Bot (tapa bordes de las barras)
-    // 6. character  — Nene encima de todo
+    // Orden de profundidad (de atrás hacia adelante):
+    // 1. stereoBG → 2. barras viz → 3. eyeWhites → 4. pupil → 5. abot → 6. character
     addBehindChar(stereoBG, character);
 
     if (viz != null)

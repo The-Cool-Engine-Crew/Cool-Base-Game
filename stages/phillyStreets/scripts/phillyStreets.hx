@@ -1,9 +1,7 @@
 // phillyStreets.hx — Cool Engine stage script
-//
-// Usa ShaderManager.applyShaderToCamera("rain", camGame) para aplicar el shader.
-// A partir de la corrección en ShaderManager, applyShaderToCamera() gestiona
-// internamente un sprite overlay — no hace falta crear ni destruir nada manualmente.
-// Para quitar el shader: ShaderManager.removeShaderFromCamera("rain", camGame).
+
+var rain:ShaderHandle = null;
+var rainFilter = null;   // ShaderFilter devuelto por rain.toFilter()
 
 var rainTime:Float = 0.0;
 var shaderApplied:Bool = false;
@@ -38,7 +36,7 @@ function onStageCreate():Void
             rainEndIntensity   = 0.30;
     }
 
-    ShaderManager.loadShader("rain");
+    rain = new ShaderHandle('rain');
     resetCar(true, true);
     resetStageValues();
 }
@@ -51,20 +49,20 @@ function onUpdate(elapsed:Float):Void
         shaderDelay++;
         if (shaderDelay < 2) return;
 
-        // applyShaderToCamera() crea el overlay internamente y lo gestiona.
-        // No hace falta crear ningún FlxSprite manualmente.
-        ShaderManager.applyShaderToCamera("rain", camGame);
+        // toFilter(camGame) crea el ShaderFilter, lo registra en ShaderManager
+        // y lo aplica a la cámara con CameraUtil.addFilter en una sola llamada.
+        rainFilter = rain.toFilter(camGame);
 
         var puddleProp = stage != null ? stage.getElement('puddle') : null;
         if (puddleProp != null)
         {
-            ShaderManager.setShaderParam("rain", "uPuddleY",      puddleProp.y + 80.0);
-            ShaderManager.setShaderParam("rain", "uPuddleScaleY", 0.3);
+            rain.set('uPuddleY',      puddleProp.y + 80.0);
+            rain.set('uPuddleScaleY', 0.3);
         }
         else
         {
-            ShaderManager.setShaderParam("rain", "uPuddleY",      0.0);
-            ShaderManager.setShaderParam("rain", "uPuddleScaleY", 0.0);
+            rain.set('uPuddleY',      0.0);
+            rain.set('uPuddleScaleY', 0.0);
         }
 
         shaderApplied = true;
@@ -81,11 +79,11 @@ function onUpdate(elapsed:Float):Void
         intensity = FlxMath.bound(intensity, rainStartIntensity, rainEndIntensity);
     }
 
-    ShaderManager.setShaderParam("rain", "uTime",      rainTime);
-    ShaderManager.setShaderParam("rain", "uIntensity", intensity);
-    ShaderManager.setShaderParam("rain", "uScale",     FlxG.height / 200.0);
-    ShaderManager.setShaderParam("rain", "uScreenW",   FlxG.width  * 1.0);
-    ShaderManager.setShaderParam("rain", "uScreenH",   FlxG.height * 1.0);
+    rain.set('uTime',      rainTime);
+    rain.set('uIntensity', intensity);
+    rain.set('uScale',     FlxG.height / 200.0);
+    rain.set('uScreenW',   FlxG.width  * 1.0);
+    rain.set('uScreenH',   FlxG.height * 1.0);
 
     var sky = stage != null ? stage.getElement('phillySkybox') : null;
     if (sky != null)
@@ -119,20 +117,26 @@ function onBeatHit(beat:Int):Void
         changeLights(beat);
 }
 
+function _removeShader():Void
+{
+    if (rainFilter != null)
+    {
+        funkin.data.CameraUtil.removeFilter(rainFilter, camGame);
+        rainFilter = null;
+    }
+    shaderApplied = false;
+    rainTime      = 0.0;
+}
+
 function onGameOver():Void
 {
-    // removeShaderFromCamera quita el overlay gestionado por ShaderManager.
-    ShaderManager.removeShaderFromCamera("rain", camGame);
-    shaderApplied = false;
-    rainTime = 0.0;
+    _removeShader();
 }
 
 function onRestart():Void
 {
-    ShaderManager.removeShaderFromCamera("rain", camGame);
-    shaderApplied = false;
-    shaderDelay   = 0;
-    rainTime      = 0.0;
+    _removeShader();
+    shaderDelay = 0;
 }
 
 function onDestroy():Void
@@ -142,7 +146,7 @@ function onDestroy():Void
     if (phillyCars  != null) FlxTween.cancelTweensOf(phillyCars);
     if (phillyCars2 != null) FlxTween.cancelTweensOf(phillyCars2);
 
-    ShaderManager.removeShaderFromCamera("rain", camGame);
+    _removeShader();
 }
 
 function changeLights(beat:Int):Void

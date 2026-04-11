@@ -1,0 +1,145 @@
+{
+	"isFlxAnimate": true,
+	"positionOffset":[
+		30,
+		-300
+	],
+	"cameraOffset": [
+		-100,
+		140
+	],
+	"animations": [
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"prefix": "idle",
+			"indices": [
+				0,
+				1,
+				2,
+				3,
+				4,
+				5,
+				6,
+				7,
+				8,
+				9,
+				10,
+				11,
+				12,
+				13
+			],
+			"flipX": false,
+			"looped": false,
+			"name": "idle",
+			"flipY": false,
+			"framerate": 24
+		},
+		{
+			"flipY": false,
+			"offsets": [
+				0,
+				0
+			],
+			"framerate": 24,
+			"prefix": "joint pose left",
+			"flipX": false,
+			"looped": false,
+			"name": "singLEFT"
+		},
+		{
+			"flipY": false,
+			"offsets": [
+				0,
+				0
+			],
+			"framerate": 24,
+			"prefix": "joint pose down",
+			"flipX": false,
+			"looped": false,
+			"name": "singDOWN"
+		},
+		{
+			"flipY": false,
+			"offsets": [
+				0,
+				5
+			],
+			"framerate": 24,
+			"prefix": "joint pose up",
+			"flipX": false,
+			"looped": false,
+			"name": "singUP"
+		},
+		{
+			"flipY": false,
+			"offsets": [
+				0,
+				0
+			],
+			"framerate": 24,
+			"prefix": "joint pose right",
+			"flipX": false,
+			"looped": false,
+			"name": "singRIGHT"
+		},
+		{
+			"flipY": false,
+			"offsets": [
+				0,
+				0
+			],
+			"framerate": 24,
+			"prefix": "joint left miss",
+			"flipX": false,
+			"looped": false,
+			"name": "singLEFTmiss"
+		},
+		{
+			"flipY": false,
+			"offsets": [
+				0,
+				0
+			],
+			"framerate": 24,
+			"prefix": "joint down miss",
+			"flipX": false,
+			"looped": false,
+			"name": "singDOWNmiss"
+		},
+		{
+			"flipY": false,
+			"offsets": [
+				0,
+				5
+			],
+			"framerate": 24,
+			"prefix": "joint up miss",
+			"flipX": false,
+			"looped": false,
+			"name": "singUPmiss"
+		},
+		{
+			"flipY": false,
+			"offsets": [
+				0,
+				0
+			],
+			"framerate": 24,
+			"prefix": "joint right miss",
+			"flipX": false,
+			"looped": false,
+			"name": "singRIGHTmiss"
+		}
+	],
+	"isPlayer": true,
+	"gameOverEnd": "gameplay/gameOverEnd",
+	"gameOverSound": "gameplay/gameover/fnf_loss_sfx",
+	"charDeath": "bf-dead",
+	"healthIcon": "bf",
+	"antialiasing": true,
+	"path": "bf",
+	"scale": 1
+}
