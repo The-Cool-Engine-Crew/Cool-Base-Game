@@ -63,6 +63,9 @@ function onCreate() {
     mc.addEventSimple(60, "all", -1, CONFUSION,  0, 2, QUAD_OUT);
     mc.addEventSimple(60, "all", -1, BUMPY,      0, 2, QUAD_OUT);
 
+    mc.addEventSimple(60.0, "all", -1, WIN_SCALE, 1.2, 1.2, LINEAR);
+    mc.addEventSimple(63.0, "all", -1, WIN_SCALE, 1.0, 1.0, LINEAR);
+
     // ─────────────────────────────────────────────────────────
     //  ACORDES (beats 64-95)
     // ─────────────────────────────────────────────────────────
@@ -84,8 +87,28 @@ function onCreate() {
     mc.addEventSimple(80, "all", -1, STEALTH, 0.65, 4, QUAD_IN_OUT);
     mc.addEventSimple(84, "all", -1, STEALTH,    0, 2, QUAD_OUT);
 
+    mc.addEventSimple(80.0, "all", -1, WIN_X, -100.0, 0, INSTANT);
+    mc.addEventSimple(82.0, "all", -1, WIN_X, 100.0, 0, INSTANT);
+    mc.addEventSimple(82.0, "all", -1, WIN_Y, -100.0, 0, INSTANT);
+
+    mc.addEventSimple(84.0, "all", -1, WIN_X, 200.0, 0, INSTANT);
+
+    mc.addEventSimple(84.0, "all", -1, WIN_Y, 200.0, 0, INSTANT);
+
+    mc.addEventSimple(86.0, "all", -1, WIN_X, 100.0, 0, INSTANT);
+    mc.addEventSimple(86.0, "all", -1, WIN_Y, 0.0, 0, INSTANT);
+
+    mc.addEventSimple(86.0, "all", -1, WIN_X, 100.0, 0, INSTANT);
+    mc.addEventSimple(86.0, "all", -1, WIN_Y, 0.0, 0, INSTANT);
+
+    mc.addEventSimple(88.0, "all", -1, WIN_RESET, 0.0, 0.0, INSTANT);
+
     mc.addEventSimple(84, "all", -1, TIPSY,  90, 4, SINE_IN_OUT);
     mc.addEventSimple(88, "all", -1, TIPSY,   0, 2, QUAD_OUT);
+
+    mc.addEventSimple(88.0, "all", -1, WIN_ZIGZAG, 50.0, 2.0, LINEAR);
+
+    mc.addEventSimple(95.0, "all", -1, WIN_RESET, 0.0, 0.0, INSTANT);
 
     mc.addEventSimple(88, "camera", -1, CAM_ZOOM, 0.25, 4, SINE_IN_OUT);
     mc.addEventSimple(92, "camera", -1, CAM_ZOOM,    0, 4, QUAD_OUT);
@@ -125,6 +148,10 @@ function onCreate() {
     mc.addEventSimple(128, "all", -1, BUMPY,      55, 4, QUAD_OUT);
     mc.addEventSimple(132, "all", -1, BUMPY,       0, 2, QUAD_OUT);
     mc.addEventSimple(136, "all", -1, WAVE,        0, 2, QUAD_OUT);
+
+    mc.addEventSimple(128.0, "all", -1, WIN_ORBIT, 40.0, 2.0, CUBE_OUT);
+
+    mc.addEventSimple(140.0, "all", -1, WIN_RESET, 0.0, 0.0, LINEAR);
 
     mc.addEventSimple(136, "all", -1, TORNADO, 32, 4, QUAD_OUT);
     mc.addEventSimple(140, "all", -1, TORNADO,  0, 2, QUAD_OUT);
@@ -179,6 +206,22 @@ function onCreate() {
     mc.addEventSimple(196, "all", -1, WAVE_SPEED, 2.5, 0, LINEAR);
     mc.addEventSimple(200, "all", -1, WAVE,        0,  2, QUAD_OUT);
 
+    mc.addEventSimple(200.0, "all", -1, WIN_X, -100.0, 0, INSTANT);
+    mc.addEventSimple(202.0, "all", -1, WIN_X, 100.0, 0, INSTANT);
+    mc.addEventSimple(202.0, "all", -1, WIN_Y, -100.0, 0, INSTANT);
+
+    mc.addEventSimple(204.0, "all", -1, WIN_X, 200.0, 0, INSTANT);
+
+    mc.addEventSimple(204.0, "all", -1, WIN_Y, 200.0, 0, INSTANT);
+
+    mc.addEventSimple(206.0, "all", -1, WIN_X, 100.0, 0, INSTANT);
+    mc.addEventSimple(206.0, "all", -1, WIN_Y, 0.0, 0, INSTANT);
+
+    mc.addEventSimple(208.0, "all", -1, WIN_X, 100.0, 0, INSTANT);
+    mc.addEventSimple(208.0, "all", -1, WIN_Y, 0.0, 0, INSTANT);
+
+    mc.addEventSimple(210.0, "all", -1, WIN_RESET, 0.0, 0.0, INSTANT);
+
     // ─────────────────────────────────────────────────────────
     //  CLÍMAX (beats 204-231)
     // ─────────────────────────────────────────────────────────
@@ -224,6 +267,8 @@ function onCreate() {
     mc.addEventSimple(240, "all", -1, BUMPY,       35, 8, QUAD_OUT);
     mc.addEventSimple(240, "all", -1, BUMPY_SPEED, 2.5, 0, LINEAR);
     mc.addEventSimple(248, "all", -1, BUMPY,        0,  4, QUAD_OUT);
+
+    mc.addEventSimple(240.0, "all", -1, WIN_ZIGZAG, 50.0, 50.0, LINEAR);
 
     mc.addEventSimple(248, "all", -1, STEALTH, 0.5, 4, QUAD_IN_OUT);
     mc.addEventSimple(252, "all", -1, STEALTH,   0, 4, QUAD_OUT);
