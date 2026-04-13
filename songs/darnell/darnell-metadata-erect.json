@@ -7,12 +7,12 @@
   "playData": {
     "difficulties": ["erect", "nightmare"],
     "characters": {
-      "player": "pico",
+      "player": "pico-playable",
       "girlfriend": "nene",
       "opponent": "darnell",
       "instrumental": "erect",
       "opponentVocals": ["darnell"],
-      "playerVocals": ["pico"]
+      "playerVocals": ["pico-playable"]
     },
     "stage": "phillyStreetsErect",
     "noteStyle": "funkin",

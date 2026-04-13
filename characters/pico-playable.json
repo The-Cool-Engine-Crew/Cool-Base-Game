@@ -12,250 +12,249 @@
 	"charDeath": "pico-playable",
 	"animations": [
 		{
-			"framerate": 24,
-			"prefix": "Idle",
-			"name": "idle",
 			"offsets": [
 				-139,
 				-170
-			]
+			],
+			"prefix": "Idle",
+			"name": "idle",
+			"framerate": 24
 		},
 		{
-			"framerate": 24,
-			"prefix": "Right",
-			"name": "singRIGHT",
 			"offsets": [
 				-130,
 				-167
-			]
+			],
+			"prefix": "Right",
+			"name": "singRIGHT",
+			"framerate": 24
 		},
 		{
-			"framerate": 24,
-			"prefix": "Down",
-			"name": "singDOWN",
 			"offsets": [
 				-150,
 				-160
-			]
+			],
+			"prefix": "Down",
+			"name": "singDOWN",
+			"framerate": 24
 		},
 		{
-			"framerate": 24,
-			"prefix": "Up",
-			"name": "singUP",
 			"offsets": [
 				-130,
 				-170
-			]
+			],
+			"prefix": "Up",
+			"name": "singUP",
+			"framerate": 24
 		},
 		{
-			"prefix": "Left",
-			"name": "singLEFT",
 			"offsets": [
 				-148,
 				-169
-			]
+			],
+			"prefix": "Left",
+			"name": "singLEFT"
 		},
 		{
 			"offsets": [
-				138,
-				168
+				-2,
+				-2
 			],
-			"assetPath": "pico/playable-animations",
 			"framerate": 24,
+			"assetPath": "pico/playable-animations",
 			"prefix": "Left Miss",
 			"name": "singLEFTmiss"
 		},
 		{
 			"offsets": [
-				138,
-				168
+				2,
+				1
 			],
-			"assetPath": "pico/playable-animations",
 			"framerate": 24,
+			"assetPath": "pico/playable-animations",
 			"prefix": "Down Miss",
 			"name": "singDOWNmiss"
 		},
 		{
 			"offsets": [
-				138,
-				168
+				-2,
+				-2
 			],
-			"assetPath": "pico/playable-animations",
 			"framerate": 24,
+			"assetPath": "pico/playable-animations",
 			"prefix": "Up Miss",
 			"name": "singUPmiss"
 		},
 		{
 			"offsets": [
-				138,
-				168
+				-2,
+				4
 			],
-			"assetPath": "pico/playable-animations",
 			"framerate": 24,
+			"assetPath": "pico/playable-animations",
 			"prefix": "Right Miss",
 			"name": "singRIGHTmiss"
 		},
 		{
 			"offsets": [
-				138,
-				168
+				128,
+				8
 			],
-			"assetPath": "pico/playable-animations",
 			"framerate": 24,
+			"assetPath": "pico/playable-animations",
 			"prefix": "Hit",
 			"name": "shootMISS"
 		},
 		{
 			"offsets": [
-				100,
-				195
+				-40,
+				15
 			],
-			"assetPath": "pico/death",
 			"framerate": 24,
+			"assetPath": "pico/death",
 			"prefix": "Death Intro",
 			"name": "firstDeath"
 		},
 		{
 			"offsets": [
-				100,
-				195
+				-30,
+				5
 			],
-			"assetPath": "pico/death",
 			"framerate": 24,
+			"assetPath": "pico/death",
 			"prefix": "Death Loop",
-			"name": "deathLoop",
-			"looped": true
+			"looped": true,
+			"name": "deathLoop"
 		},
 		{
 			"offsets": [
-				100,
-				195
+				-20,
+				5
 			],
-			"assetPath": "pico/death",
 			"framerate": 24,
+			"assetPath": "pico/death",
 			"prefix": "Death Confirm",
 			"name": "deathConfirm"
 		},
 		{
 			"offsets": [
-				335,
-				990
+				215,
+				840
 			],
-			"assetPath": "pico/explosion-death",
 			"framerate": 24,
+			"assetPath": "pico/explosion-death",
 			"prefix": "intro",
 			"name": "firstDeath-explosion"
 		},
 		{
 			"offsets": [
-				335,
-				990
+				215,
+				830
 			],
-			"assetPath": "pico/explosion-death",
 			"framerate": 24,
+			"assetPath": "pico/explosion-death",
 			"prefix": "Loop Start",
-			"name": "deathLoop-explosion",
-			"looped": true
+			"looped": true,
+			"name": "deathLoop-explosion"
 		},
 		{
 			"offsets": [
-				335,
-				990
+				225,
+				850
 			],
-			"assetPath": "pico/explosion-death",
 			"framerate": 24,
+			"assetPath": "pico/explosion-death",
 			"prefix": "Confirm",
 			"name": "deathConfirm-explosion"
 		},
 		{
 			"offsets": [
-				138,
-				168
+				-2,
+				-2
 			],
-			"assetPath": "pico/playable-animations",
 			"framerate": 24,
+			"assetPath": "pico/playable-animations",
 			"prefix": "Hey",
 			"name": "hey"
 		},
 		{
 			"offsets": [
-				138,
-				168
+				-15,
+				14
 			],
-			"assetPath": "pico/playable-animations",
 			"framerate": 24,
+			"assetPath": "pico/playable-animations",
 			"prefix": "Cheer",
 			"name": "cheer"
 		},
 		{
 			"offsets": [
-				138,
-				168
+				108,
+				-12
 			],
-			"assetPath": "pico/playable-animations",
 			"framerate": 24,
+			"assetPath": "pico/playable-animations",
 			"prefix": "Gun Reload",
-			"name": "cock",
-			"looped": false
+			"looped": false,
+			"name": "cock"
 		},
 		{
 			"offsets": [
-				138,
-				168
+				73,
+				-5
 			],
-			"assetPath": "pico/playable-animations",
 			"framerate": 24,
+			"assetPath": "pico/playable-animations",
 			"prefix": "Shoot",
 			"name": "shoot"
 		},
 		{
 			"offsets": [
-				138,
-				168
+				-1,
+				-2
 			],
-			"assetPath": "pico/playable-animations",
 			"framerate": 24,
+			"assetPath": "pico/playable-animations",
 			"prefix": "Pissed Off",
 			"name": "intro1"
 		},
 		{
 			"offsets": [
-				138,
-				168
+				-1,
+				-2
 			],
-			"assetPath": "pico/playable-animations",
 			"framerate": 24,
+			"assetPath": "pico/playable-animations",
 			"prefix": "Shoot and Return",
 			"name": "intro2"
 		},
 		{
 			"offsets": [
-				138,
-				168
+				-2,
+				-2
 			],
-			"assetPath": "pico/playable-animations",
 			"framerate": 24,
+			"assetPath": "pico/playable-animations",
 			"prefix": "*BURP* ... Shit",
 			"name": "burpShit"
 		},
 		{
 			"offsets": [
-				138,
-				168
+				-2,
+				-2
 			],
-			"assetPath": "pico/playable-animations",
 			"framerate": 24,
+			"assetPath": "pico/playable-animations",
 			"prefix": "Burp Smile",
 			"name": "burpSmile"
 		},
 		{
 			"offsets": [
-				138,
-				168
+				-2,
+				-2
 			],
-			"assetPath": "pico/playable-animations",
 			"framerate": 24,
-			"prefix": "Burp Smile",
+			"assetPath": "pico/playable-animations",
 			"frameIndices": [
 				0,
 				1,
@@ -320,15 +319,16 @@
 				31,
 				31
 			],
+			"prefix": "Burp Smile",
 			"name": "burpSmileLong"
 		},
 		{
 			"offsets": [
-				138,
-				168
+				-1,
+				-2
 			],
-			"assetPath": "pico/playable-animations",
 			"framerate": 24,
+			"assetPath": "pico/playable-animations",
 			"prefix": "Burp Censor",
 			"name": "shit"
 		}

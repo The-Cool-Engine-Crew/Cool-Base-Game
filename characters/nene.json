@@ -21,7 +21,11 @@
 				13,
 				14
 			],
-			"framerate": 24
+			"framerate": 24,
+			"offsets": [
+				0,
+				0
+			]
 		},
 		{
 			"name": "danceRight",
@@ -43,12 +47,20 @@
 				28,
 				29
 			],
-			"framerate": 24
+			"framerate": 24,
+			"offsets": [
+				0,
+				0
+			]
 		},
 		{
 			"name": "combo50",
 			"prefix": "Cheer",
-			"framerate": 24
+			"framerate": 24,
+			"offsets": [
+				0,
+				0
+			]
 		},
 		{
 			"name": "drop70",
@@ -92,7 +104,11 @@
 				10,
 				11
 			],
-			"framerate": 24
+			"framerate": 24,
+			"offsets": [
+				0,
+				0
+			]
 		},
 		{
 			"name": "laughCutscene",
@@ -136,7 +152,11 @@
 				10,
 				11
 			],
-			"framerate": 24
+			"framerate": 24,
+			"offsets": [
+				0,
+				0
+			]
 		},
 		{
 			"name": "combo200",
@@ -173,22 +193,38 @@
 				6,
 				6,
 				6
+			],
+			"offsets": [
+				0,
+				0
 			]
 		},
 		{
 			"name": "raiseKnife",
 			"prefix": "Knife Raise",
-			"framerate": 24
+			"framerate": 24,
+			"offsets": [
+				0,
+				0
+			]
 		},
 		{
 			"name": "idleKnife",
 			"prefix": "Idle (holding Knife)",
-			"framerate": 24
+			"framerate": 24,
+			"offsets": [
+				0,
+				0
+			]
 		},
 		{
 			"name": "lowerKnife",
 			"prefix": "Knife Lower",
-			"framerate": 24
+			"framerate": 24,
+			"offsets": [
+				0,
+				0
+			]
 		},
 		{
 			"name": "hairBlowNormal",
@@ -203,7 +239,11 @@
 				2,
 				3
 			],
-			"framerate": 24
+			"framerate": 24,
+			"offsets": [
+				0,
+				0
+			]
 		},
 		{
 			"name": "hairFallNormal",
@@ -227,7 +267,11 @@
 				15,
 				16
 			],
-			"framerate": 24
+			"framerate": 24,
+			"offsets": [
+				0,
+				0
+			]
 		},
 		{
 			"name": "hairBlowKnife",
@@ -242,7 +286,11 @@
 				2,
 				3
 			],
-			"framerate": 24
+			"framerate": 24,
+			"offsets": [
+				0,
+				0
+			]
 		},
 		{
 			"name": "hairFallKnife",
@@ -264,7 +312,11 @@
 				13,
 				14
 			],
-			"framerate": 24
+			"framerate": 24,
+			"offsets": [
+				0,
+				0
+			]
 		}
 	],
 	"isPlayer": false,
