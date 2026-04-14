@@ -1,0 +1,253 @@
+{
+	"dadPosition": [
+		-400,
+		-200
+	],
+	"scripts": [],
+	"gfPosition": [
+		360,
+		280
+	],
+	"gfVersion": "nene",
+	"cameraDad": [
+		0,
+		0
+	],
+	"isPixelStage": false,
+	"name": "phillyBlazin",
+	"boyfriendPosition": [
+		45,
+		330
+	],
+	"hideGirlfriend": false,
+	"defaultZoom": 0.75,
+	"cameraBoyfriend": [
+		0,
+		0
+	],
+	"elements": [
+		{
+			"asset": "skyBlur",
+			"aboveChars": false,
+			"visible": true,
+			"angle": null,
+			"color": null,
+			"antialiasing": true,
+			"zIndex": 0,
+			"position": [
+				-600,
+				-120
+			],
+			"scale": [
+				1.75,
+				1.75
+			],
+			"type": "backdrop",
+			"velocityX": -20,
+			"flipX": false,
+			"name": "scrollingSky",
+			"flipY": false,
+			"scrollFactor": [
+				1,
+				1
+			],
+			"repeatX": true,
+			"alpha": 1
+		},
+		{
+			"zIndex": 0,
+			"asset": "skyBlur",
+			"aboveChars": false,
+			"blend": "add",
+			"position": [
+				-500,
+				-175
+			],
+			"type": "sprite",
+			"scale": [
+				1.75,
+				1.75
+			],
+			"name": "skyAdditive",
+			"visible":false,
+			"angle": null,
+			"flipX": false,
+			"color": null,
+			"scrollFactor": [
+				1,
+				1
+			],
+			"antialiasing": true,
+			"flipY": false,
+			"alpha": 1
+		},
+		{
+			"scrollFactor": [
+				1,
+				1
+			],
+			"asset": "lightning",
+			"visible":false,
+			"zIndex": 20,
+			"position": [
+				150,
+				-300
+			],
+			"scale": [
+				1.75,
+				1.75
+			],
+			"type": "animated",
+			"animations": [
+				{
+					"framerate": 24,
+					"prefix": "lightning0",
+					"looped": false,
+					"indices": null,
+					"name": "strike"
+				}
+			],
+			"name": "lightning"
+		},
+		{
+			"zIndex": 0,
+			"asset": "streetBlur",
+			"aboveChars": false,
+			"position": [
+				-610,
+				-50
+			],
+			"type": "sprite",
+			"scale": [
+				1.75,
+				1.75
+			],
+			"visible": true,
+			"name": "phillyForegroundCity",
+			"angle": null,
+			"flipX": false,
+			"color": null,
+			"scrollFactor": [
+				1,
+				1
+			],
+			"antialiasing": true,
+			"flipY": false,
+			"alpha": 1
+		},
+		{
+			"zIndex": 0,
+			"asset": "streetBlur",
+			"aboveChars": false,
+			"blend": "multiply",
+			"position": [
+				-605,
+				-55
+			],
+			"type": "sprite",
+			"scale": [
+				1.75,
+				1.75
+			],
+			"visible": false,
+			"name": "foregroundMultiply",
+			"angle": null,
+			"flipX": false,
+			"color": null,
+			"scrollFactor": [
+				1,
+				1
+			],
+			"antialiasing": true,
+			"flipY": false,
+			"alpha": 1
+		},
+		{
+			"asset": "",
+			"zIndex": 40,
+			"graphicSize": [
+				2500,
+				2000
+			],
+			"blend": "add",
+			"position": [
+				-500,
+				-175
+			],
+			"type": "graphic",
+			"graphicColor": "#FFFFFF",
+			"name": "additionalLighten",
+			"visible": false,
+			"scrollFactor": [
+				1,
+				1
+			]
+		},
+		{
+			"asset": "",
+			"zIndex": 0,
+			"position": [
+				0,
+				0
+			],
+			"scale": [
+				1,
+				1
+			],
+			"type": "character",
+			"visible": true,
+			"name": "char_gf",
+			"charSlot": "gf",
+			"scrollFactor": [
+				1,
+				1
+			],
+			"antialiasing": true,
+			"alpha": 1
+		},
+		{
+			"asset": "",
+			"zIndex": 0,
+			"position": [
+				0,
+				0
+			],
+			"scale": [
+				1,
+				1
+			],
+			"type": "character",
+			"visible": true,
+			"name": "char_dad",
+			"charSlot": "dad",
+			"scrollFactor": [
+				1,
+				1
+			],
+			"antialiasing": true,
+			"alpha": 1
+		},
+		{
+			"asset": "",
+			"zIndex": 0,
+			"position": [
+				0,
+				0
+			],
+			"scale": [
+				1,
+				1
+			],
+			"type": "character",
+			"visible": true,
+			"name": "char_bf",
+			"charSlot": "bf",
+			"scrollFactor": [
+				1,
+				1
+			],
+			"antialiasing": true,
+			"alpha": 1
+		}
+	]
+}
