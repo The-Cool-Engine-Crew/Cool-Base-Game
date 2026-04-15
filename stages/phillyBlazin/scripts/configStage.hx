@@ -1,6 +1,5 @@
 var lightningTimer:Float = 3.0;
 var lightningActive:Bool = true;
-
 var lightning = null;
 var skyAdditive = null;
 var foregroundMultiply = null;
@@ -10,10 +9,10 @@ function postCreate() {
 	boyfriend.color = 0xFFDEDEDE;
 	dad.color = 0xFFDEDEDE;
 	gf.color = 0xFF888888;
-    lightningActive = true;
+	lightningActive = true;
 
-    dad.scale.set(1.6,1.6);
-    boyfriend.scale.set(1.6,1.6);
+	dad.scale.set(1.6, 1.6);
+	boyfriend.scale.set(1.6, 1.6);
 }
 
 function onStageCreate() {
@@ -72,7 +71,8 @@ function applyLightning():Void {
 	FlxTween.color(gf, LIGHTNING_FADE_DURATION, 0xFF606060, 0xFF888888);
 
 	// Sound
-	FlxG.sound.play(Paths.soundRandomStage('Lightning', 1, 3), 1.0);
+	if (!inCutscene)
+		FlxG.sound.play(Paths.soundRandomStage('Lightning', 1, 3), 1.0);
 }
 
 function cleanupLightning(tween:FlxTween):Void {
