@@ -289,7 +289,7 @@ function _buildCharacters() {
     });
 
     // randomChill — sprite por defecto para slots sin personaje
-    randomChillSpr = new FunkinSprite(650, 150);
+    randomChillSpr = new FunkinSprite(820, 200);
     try {
         randomChillSpr.frames = Paths.getSparrowAtlas('charSelect/randomChill');
         randomChillSpr.animation.addByPrefix('idle', 'LOCKED MAN instance', 24, true);
