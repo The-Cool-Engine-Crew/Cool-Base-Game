@@ -1,73 +1,79 @@
 import funkin.system.CursorManager;
 
-var _img:FlxSprite     = null;
-var _pulse             = null;
-var _clicked:Bool      = false;
+var _img:FlxSprite = null;
+var _clicked:Bool = false;
+var _baseScale:Float = 1.0;
+var _colorFactor:Float = 1.0;
 
 function onCreate() {
-    FlxG.camera.bgColor = FlxColor.BLACK;
+    if (_img != null) return;
+    
+	FlxG.camera.bgColor = FlxColor.BLACK;
 
-    CursorManager.show();
+	CursorManager.show();
 
-    _img = new FlxSprite();
-    _img.loadGraphic(Paths.image('touchHereToPlay'));
-    _img.scrollFactor.set(0, 0);
+	_img = new FlxSprite();
+	_img.loadGraphic(Paths.image('touchHereToPlay'));
+	_img.scrollFactor.set(0, 0);
 
-    var maxW:Float = FlxG.width  * 0.80;
-    var maxH:Float = FlxG.height * 0.80;
-    if (_img.width > maxW || _img.height > maxH) {
-        var sc:Float = Math.min(maxW / _img.width, maxH / _img.height);
-        _img.scale.set(sc, sc);
-        _img.updateHitbox();
-    }
+	var maxW:Float = FlxG.width * 0.80;
+	var maxH:Float = FlxG.height * 0.80;
+	if (_img.width > maxW || _img.height > maxH) {
+		var sc:Float = Math.min(maxW / _img.width, maxH / _img.height);
+		_img.scale.set(sc, sc);
+		_img.updateHitbox();
+	}
 
-    _img.screenCenter();
-    _img.alpha = 0;
-    add(_img);
+	_baseScale = _img.scale.x;
 
-    FlxTween.tween(_img, {alpha: 1.0}, 0.6, {
-        ease: FlxEase.quadOut,
-        onComplete: function(_) {
-            _pulse = FlxTween.tween(_img, {alpha: 0.40}, 0.9, {
-                ease: FlxEase.sineInOut,
-                type: FlxTween.PINGPONG
-            });
-        }
-    });
+	_img.screenCenter();
+	add(_img);
 }
 
 function onUpdate(elapsed:Float) {
-    if (_clicked) return;
+    if (_clicked || _img == null) return;
 
-    var pressed:Bool = FlxG.mouse.justPressed;
+    var targetBright:Float = 1.0;
+	var targetScale:Float = _baseScale;
+    if (FlxG.mouse.overlaps(_img)) {
+        targetScale = _baseScale * 1.05;
+        targetBright = 0.7;
+    }
+    
+    var currentScale:Float = _img.scale.x + (targetScale - _img.scale.x) * (elapsed * 15);
+    _img.scale.set(currentScale, currentScale);
+
+    _colorFactor = _colorFactor + (targetBright - _colorFactor) * (elapsed * 10);
+    var colorVal:Int = Std.int(_colorFactor * 255);
+    _img.color = FlxColor.fromRGB(colorVal, colorVal, colorVal);
+
+    var pressed:Bool = false;
+
+    if (FlxG.mouse.justPressed && FlxG.mouse.overlaps(_img)) {
+        pressed = true;
+    }
 
     if (!pressed && FlxG.touches.list != null) {
         for (touch in FlxG.touches.list) {
-            if (touch.justPressed) { pressed = true; break; }
+            if (touch.justPressed && touch.overlaps(_img)) { 
+                pressed = true;
+                break; 
+            }
         }
     }
 
-    if (!pressed) return;
+	if (!pressed)
+		return;
 
-    _clicked = true;
+	_clicked = true;
 
-    if (_pulse != null) {
-        _pulse.cancel();
-        _pulse = null;
-    }
+    _img.color = 0xFFFFFF;
 
-    FlxTween.tween(_img, {alpha: 0}, 0.4, {
-        ease: FlxEase.quadIn,
-        onComplete: function(_) {
-            switchState('title');
-            CursorManager.hide();
-        }
-    });
-}
-
-function onDestroy() {
-    if (_pulse != null) {
-        _pulse.cancel();
-        _pulse = null;
-    }
+	FlxTween.tween(_img, {alpha: 0}, 0.4, {
+		ease: FlxEase.quadIn,
+		onComplete: function(_) {
+			switchState('title');
+			CursorManager.hide();
+		}
+	});
 }

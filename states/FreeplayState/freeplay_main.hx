@@ -353,8 +353,8 @@ function onCreate()
 {
 	if (_created) return;
 	_created = true;
-	_hintText = new FlxText(0, FlxG.height - 30, FlxG.width,
-		'TAB - cambiar personaje  [' + selectedChar.toUpperCase() + ']');
+	_hintText = new FlxText(0, FlxG.height * 0.9, FlxG.width,
+		'TAB - CHANGE CHARACTER  [' + selectedChar.toUpperCase() + ']');
 	_hintText.color     = 0xFFFFFFFF;
 	_hintText.alpha     = 0.7;
 	_hintText.alignment = 'center';
