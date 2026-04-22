@@ -26,29 +26,24 @@
 	],
 	"elements": [
 		{
-			"asset": "brightLightSmall",
-			"zIndex": 0,
-			"aboveChars": false,
-			"position": [
-				965,
-				-105
+			"asset": "",
+			"zIndex": 40,
+			"graphicSize": [
+				2400,
+				1400
 			],
-			"scale": [
+			"position": [
+				113,
+				-255
+			],
+			"type": "graphic",
+			"visible": true,
+			"graphicColor": "#222026",
+			"name": "solid",
+			"scrollFactor": [
 				1,
 				1
-			],
-			"type": "sprite",
-			"visible": true,
-			"name": "brightLightSmall",
-			"flipX": false,
-			"color": null,
-			"scrollFactor": [
-				1.2,
-				1.2
-			],
-			"antialiasing": true,
-			"flipY": false,
-			"alpha": 1
+			]
 		},
 		{
 			"asset": "crowd",
@@ -79,9 +74,9 @@
 				{
 					"framerate": 24,
 					"prefix": "idle",
-					"looped": true,
 					"indices": null,
-					"name": "idle"
+					"name": "idle",
+					"looped": true
 				}
 			]
 		},
@@ -136,6 +131,98 @@
 			"alpha": 1
 		},
 		{
+			"asset": "",
+			"zIndex": 0,
+			"position": [
+				0,
+				0
+			],
+			"scale": [
+				1,
+				1
+			],
+			"type": "character",
+			"visible": true,
+			"name": "char_dad",
+			"charSlot": "dad",
+			"scrollFactor": [
+				1,
+				1
+			],
+			"antialiasing": true,
+			"alpha": 1
+		},
+		{
+			"asset": "",
+			"zIndex": 0,
+			"position": [
+				0,
+				0
+			],
+			"scale": [
+				1,
+				1
+			],
+			"type": "character",
+			"visible": true,
+			"name": "char_gf",
+			"charSlot": "gf",
+			"scrollFactor": [
+				1,
+				1
+			],
+			"antialiasing": true,
+			"alpha": 1
+		},
+		{
+			"asset": "",
+			"zIndex": 0,
+			"position": [
+				0,
+				0
+			],
+			"scale": [
+				1,
+				1
+			],
+			"type": "character",
+			"visible": true,
+			"name": "char_bf",
+			"charSlot": "bf",
+			"scrollFactor": [
+				1,
+				1
+			],
+			"antialiasing": true,
+			"alpha": 1
+		},
+		{
+			"asset": "brightLightSmall",
+			"zIndex": 0,
+			"aboveChars": false,
+			"position": [
+				965,
+				-105
+			],
+			"blend": "softlight",
+			"scale": [
+				1,
+				1
+			],
+			"type": "sprite",
+			"visible": true,
+			"name": "brightLightSmall",
+			"flipX": false,
+			"color": null,
+			"scrollFactor": [
+				1.2,
+				1.2
+			],
+			"antialiasing": true,
+			"flipY": false,
+			"alpha": 1
+		},
+		{
 			"zIndex": 0,
 			"asset": "lights",
 			"aboveChars": true,
@@ -170,11 +257,12 @@
 			],
 			"scale": [
 				1,
-				20
+				1700
 			],
 			"type": "sprite",
 			"visible": true,
 			"name": "orangeLight",
+			"blend": "add",
 			"color": null,
 			"flipX": false,
 			"antialiasing": true,
